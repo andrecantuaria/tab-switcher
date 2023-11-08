@@ -6,11 +6,7 @@
 
 :root {
     --app-white: #fff;
-    --app-bg-dark: #191720;
-    --app-red: #e6364e;
     --app-dark-gray: #26232b;
-    --app-pink: #ff00ff;
-    --app-dark-pink: #9a009a;
     --app-light-gray: #f1f5f8;
     --app-btn-bg: #a9a9a9;
     --app-btn-bg-hover: #6a6a6a;
@@ -71,7 +67,7 @@ p {
     display: flex;
     flex-direction: column;
     background-color: var(--app-light-gray);
-    width: 800px;
+    width: auto;
     height: auto;
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
@@ -94,14 +90,23 @@ p {
     background-position: center; 
 }
 
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; 
+    gap: 5px;
+}
+
 .tab-btn {
+    width: 100%;
     background-color: var(--app-btn-bg);
-    color: #fff;
+    color: var(--app-white);
     border: none;
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     padding: 10px 20px;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
 .tab-btn:hover {
@@ -114,22 +119,21 @@ p {
   
 .column {
     flex: 1; 
-    padding: 10px;
     border: none;
+    padding: 0px 15px 0px 15px;
 }
 
-.content article {
+article {
     text-align: left;
     justify-content: left;
     display: none;
 }
 
-
-.content article:first-child {
+article:first-child {
     display: block;
 }
 
 .tab-btn.active {
     background-color: var(--app-btn-bg-active);
-    color: white;
+    color: var(--app-white);
 }

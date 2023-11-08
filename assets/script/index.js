@@ -11,7 +11,7 @@ function selectAll(selector, parent = document) {
     
 // Main Code
 const buttons = selectAll('.tab-btn');
-const content = selectAll('.content article');
+const content = selectAll('article');
 
 buttons.forEach((button, index) => {
   onEvent('click', button, () => {
