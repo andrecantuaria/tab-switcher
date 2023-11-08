@@ -9,23 +9,22 @@ function selectAll(selector, parent = document) {
     return parent.querySelectorAll(selector);
 }
     
-// Main Code
-const buttons = selectAll('.tab-btn');
-const content = selectAll('article');
 
-buttons.forEach((button, index) => {
-  onEvent('click', button, () => {
-    buttons.forEach((btn) => {
+// Main Code
+const tabBtn = document.querySelectorAll('.tab-btn');
+const article = document.querySelectorAll('article');
+
+tabBtn.forEach(function(button, index) {
+  onEvent('click', button, function() {
+    tabBtn.forEach(function(btn) {
       btn.classList.remove('active');
     });
 
-    button.classList.add('active');
-  
-    content.forEach((article) => {
-      article.style.display = 'none';
+    article.forEach(function(art) {
+      art.classList.remove('active');
     });
 
-    content[index].style.display = 'block';
+    button.classList.add('active');
+    article[index].classList.add('active');
   });
 });
-
