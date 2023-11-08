@@ -1,22 +1,31 @@
 'use strict';
 
 // Utility functions
-
 function onEvent(event, selector, callback) {
     return selector.addEventListener(event, callback);
 }
     
-function select(selector, parent = document) {
-    return parent.querySelector(selector);
+function selectAll(selector, parent = document) {
+    return parent.querySelectorAll(selector);
 }
     
-function selectById(selector, parent = document) {
-    return parent.getElementById(selector);
-}
-    
-function print(...args) {
-    console.log(args.join(', '));
-}
-   
 // Main Code
+const buttons = selectAll('.tab-btn');
+const content = selectAll('.content article');
+
+buttons.forEach((button, index) => {
+  onEvent('click', button, () => {
+    buttons.forEach((btn) => {
+      btn.classList.remove('active');
+    });
+
+    button.classList.add('active');
+  
+    content.forEach((article) => {
+      article.style.display = 'none';
+    });
+
+    content[index].style.display = 'block';
+  });
+});
 
