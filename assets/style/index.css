@@ -11,10 +11,11 @@
     --app-dark-gray: #26232b;
     --app-pink: #ff00ff;
     --app-dark-pink: #9a009a;
+    --app-light-gray: #f1f5f8;
 }
-    
+
 body {
-    background-color: var(--app-bg-dark);
+    background-color: var(--app-white);
     font-family: 'Nunito Sans', 'Open Sans', Arial, sans-serif;
     font-weight: 400;
     line-height: 1.5;
@@ -24,23 +25,23 @@ body {
 h1 {
     font-size: 30px;
     font-weight: 600;
-    color: var(--app-white);
+    color: var(--app-dark-gray);
     letter-spacing: 0.2px;
     margin: 0;
 }
 
 h2 {
-    font-size: 50px;
+    font-size: 20px;
     font-weight: 600;
-    color: var(--app-pink);
+    color: var(--app-dark-gray);
     letter-spacing: 0.2px;
     margin: 0;
 }
 
 p {
-    font-size:18px;
+    font-size: 14px;
     font-weight: 400;
-    color: var(--app-white);
+    color: var(--app-dark-gray);
     margin: 0;
 }
 
@@ -56,18 +57,68 @@ p {
     align-items: center;
 }
 
-.project-container {
+.content-container {
     display: flex;
     flex-direction: column;
-    background-color: var(--app-pink);
-    max-width: 600px;
+    background-color: var(--app-light-gray);
+    width: auto;
     height: auto;
-    border-radius: 25px;
+    border-radius: 5px;
     padding: 25px;
     text-align: center;
     align-items: center;
     gap: 25px;
 }
 
+.main-img {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/img-team.jpeg);
+    background-size: cover; 
+    background-position: center; 
+}
+
+.tab-btn {
+    background-color: #808080;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.tab-btn:hover {
+    background-color: #6a6a6a;
+}
+
+.two-column-div {
+    display: flex;
+}
+  
+.column {
+    flex: 1; 
+    padding: 10px;
+    border: none;
+}
+
+.content article {
+    text-align: left;
+    justify-content: left;
+    display: none;
+}
 
 
+.content article:first-child {
+    display: block;
+}
+
+.tab-btn.active {
+    background-color: #6a6a6a;
+    color: white;
+}
