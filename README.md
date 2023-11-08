@@ -19,35 +19,41 @@ to click a button to display the corresponding content while hiding the rest. Th
 button, and 'display' is used to show or hide the content based on the clicked button.
 
 ```javascript
-const buttons = selectAll('.tab-btn');
-const content = selectAll('.content article');
+const tabBtn = document.querySelectorAll('.tab-btn');
+const article = document.querySelectorAll('article');
 
-buttons.forEach((button, index) => {
-  onEvent('click', button, () => {
-    buttons.forEach((btn) => {
+tabBtn.forEach(function(button, index) {
+  onEvent('click', button, function() {
+    tabBtn.forEach(function(btn) {
       btn.classList.remove('active');
     });
 
-    button.classList.add('active');
-  
-    content.forEach((article) => {
-      article.style.display = 'none';
+    article.forEach(function(art) {
+      art.classList.remove('active');
     });
 
-    content[index].style.display = 'block';
+    button.classList.add('active');
+    article[index].classList.add('active');
   });
 });
 ```
 
-```display: none;``` is crucial for hiding tab content by default, enabling only the active tab's content to show 
-when a user clicks a tab button. It's essential for a working tab system on your webpage, where you can 
-switch between tab content as needed.
+```article``` defines the initial hidden style for article elements.
+```article.active``` defines the style when the .active class is applied via JavaScript.
 
 ```CSS
 article {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}
+    
+article.active {
+    opacity: 1;
+    height: auto;
+    transition: ease-in-out 0.5s;
     text-align: left;
-    justify-content: left;
-    display: none;
+    justify-content: left; 
 }
 ```
 ## Key Features
